@@ -15,10 +15,7 @@
                 <?= \app\components\MenuWidget::widget([
                     'tpl' => 'menu',
                     'ul_class' => 'nav navbar-nav nav_1',
-
-
                 ]); ?>
-
 
             </div><!-- /.navbar-collapse -->
         </nav>
