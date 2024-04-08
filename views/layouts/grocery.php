@@ -27,6 +27,7 @@ AppAsset::register($this);
 
 <body>
 <?php $this->beginBody() ?>
+
 <!-- header -->
 <div class="agileits_header">
     <div class="w3l_offers">
@@ -71,7 +72,7 @@ AppAsset::register($this);
 <div class="logo_products">
     <div class="container">
         <div class="w3ls_logo_products_left">
-            <h1><a href="index.html"><span>Grocery</span> Store</a></h1>
+            <h1><a href="<?= \yii\helpers\Url::home() ?>"><span>Grocery</span> Store</a></h1>
         </div>
         <div class="w3ls_logo_products_left1">
             <ul class="special_items">
