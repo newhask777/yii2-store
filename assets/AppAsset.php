@@ -35,6 +35,7 @@ class AppAsset extends AssetBundle
         'js/minicart.js',
         'js/jquery.flexslider.js',
         'js/bootstrap.min.js',
+        'js/okzoom.js',
         'js/main.js'
     ];
     public $depends = [

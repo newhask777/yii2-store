@@ -1703,14 +1703,6 @@ ol {
 h2.typoh2{
 	margin: 0 0 10px;
 }
-@media (max-width:768px){
-	.grid_5 {
-		padding: 0 0 1em;
-	}
-	.grid_3 {
-		margin-bottom: 0em;
-	}
-}
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
 	background-color: #fa1818;
@@ -1718,6 +1710,25 @@ h2.typoh2{
 }
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus, .pagination > li > a, .pagination > li > span{
 	color: #fa1818;
+}
+
+img{
+	max-width: 100%;
+	hight:auto;
+}
+
+.snipcart-thumb img{
+	max-height: 140px;
+}
+
+
+@media (max-width:768px){
+	.grid_5 {
+		padding: 0 0 1em;
+	}
+	.grid_3 {
+		margin-bottom: 0em;
+	}
 }
 
 @media (max-width:640px){
