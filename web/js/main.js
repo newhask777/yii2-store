@@ -68,6 +68,23 @@ jQuery(document).ready(function($) {
             shadow: "0 0 5px #000"
     });
 
+    // /*  Cart */
+    // $('.add-to-cart').on('click', function (){
+    //     let id = $(this).data('id');
+    //     $.ajax({
+    //         url: 'cart/add',
+    //         data: {id: id},
+    //         type: 'GET',
+    //         success: function (res){
+    //             console.log(res);
+    //         },
+    //         error: function (){
+    //             alert('Error!');
+    //         }
+    //     });
+    //     return false;
+    // });
+
 });
 
 <!-- flexSlider -->
@@ -80,6 +97,21 @@ $(window).load(function(){
     });
 });
 
+$('.add-to-cart').on('click', function () {
+    let id = $(this).data('id');
+    $.ajax({
+        url: 'cart/add',
+        data: {id: id},
+        type: 'GET',
+        success: function (res) {
+            console.log(res);
+        },
+        error: function(){
+            alert('Error!');
+        }
+    });
+    return false;
+});
 
 
 
