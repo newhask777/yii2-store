@@ -4,32 +4,27 @@ use app\assets\AppAsset;
 use yii\helpers\Html;
 
 AppAsset::register($this);
-
 ?>
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
-
 <head>
-    <!--  Base href  -->
-    <base href="/" />
-    <!-- for-mobile-apps -->
+    <base href="/">
     <meta charset="<?= Yii::$app->charset ?>">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!--    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>-->
-<!--    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>-->
-
-    <!-- start-smoth-scrolling -->
     <?php $this->head() ?>
 </head>
 
 <body>
 <?php $this->beginBody() ?>
-
 <!-- header -->
 <div class="agileits_header">
     <div class="w3l_offers">
@@ -42,9 +37,10 @@ AppAsset::register($this);
         </form>
     </div>
     <div class="product_list_header">
-        <!-- Button trigger modal -->
-        <button type="button" class="button" data-toggle="modal" data-target="#modal-cart">
-           $0
+        <button onclick="getCart()" type="button" class="button" data-toggle="modal" data-target="#modal-cart">
+            <span class="cart-sum">
+                $<?= $_SESSION['cart.sum'] ?? '0' ?>
+            </span>
         </button>
 
         <!-- Modal -->
@@ -55,9 +51,7 @@ AppAsset::register($this);
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Корзина</h4>
                     </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
+                    <div class="modal-body"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
                         <a href="<?= \yii\helpers\Url::to(['cart/view']) ?>" class="btn btn-success">Оформить заказ</a>
@@ -66,14 +60,13 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
-
-<!--        <form action="#" method="post" class="last">-->
-<!--            <fieldset>-->
-<!--                <input type="hidden" name="cmd" value="_cart" />-->
-<!--                <input type="hidden" name="display" value="1" />-->
-<!--                <input type="submit" name="submit" value="View your cart" class="button" />-->
-<!--            </fieldset>-->
-<!--        </form>-->
+        <!--<form action="#" method="post" class="last">
+            <fieldset>
+                <input type="hidden" name="cmd" value="_cart" />
+                <input type="hidden" name="display" value="1" />
+                <input type="submit" name="submit" value="View your cart" class="button" />
+            </fieldset>
+        </form>-->
     </div>
     <div class="w3l_header_right">
         <ul>
@@ -119,9 +112,8 @@ AppAsset::register($this);
     </div>
 </div>
 <!-- //header -->
-<!-- banner -->
 
-    <?= $content; ?>
+<?= $content ?>
 
 <!-- newsletter -->
 <div class="newsletter">
@@ -209,11 +201,6 @@ AppAsset::register($this);
     </div>
 </div>
 <!-- //footer -->
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- //here ends scrolling icon -->
-<script src="js/minicart.js"></script>
 
 <?php $this->endBody() ?>
 </body>
