@@ -147,6 +147,11 @@ $('#modal-cart .modal-body').on('click', '.del-item', function () {
         type: 'GET',
         success: function (res) {
             if(!res) alert('Ошибка');
+            let now_location = document.location.pathname;
+            console.log(now_location);
+            if(now_location == '/cart/checkout'){
+                location = 'cart/checkout';
+            }
             showCart(res);
         },
         error: function(){
@@ -171,6 +176,24 @@ function clearCart() {
 
 
 /* Cart */
+
+$('.value-plus, .value-minus').on('click', function(){
+    let id = $(this).data('id'),
+        qty = $(this).data('qty');
+    $('.cart-table .overlay').fadeIn();
+    $.ajax({
+        url: 'cart/change-cart',
+        data: {id: id, qty: qty},
+        type: 'GET',
+        success: function(res){
+            if(!res) alert('Error product!');
+            location = 'cart/checkout';
+        },
+        error: function(){
+            alert('Error!');
+        }
+    });
+});
 
 // $('.value-plus').on('click', function(){
 //     var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;

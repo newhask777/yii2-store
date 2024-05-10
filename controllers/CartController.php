@@ -7,6 +7,20 @@ use app\models\Product;
 
 class CartController extends AppController
 {
+    public function actionChangeCart()
+    {
+        $id = \Yii::$app->request->get('id');
+        $qty = \Yii::$app->request->get('qty');
+        $product = Product::findOne($id);
+        if(empty($product)){
+            return false;
+        }
+        $session = \Yii::$app->session;
+        $session->open();
+        $cart = new Cart();
+        $cart->addToCart($product, $qty);
+        return $this->renderPartial('cart-modal', compact('session'));
+    }
 
     public function actionAdd($id)
     {
