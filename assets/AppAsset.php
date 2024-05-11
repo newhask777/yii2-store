@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
         'css/style.css',
     ];
     public $js = [
-        'js/jquery-1.11.1.min.js',
+//        'js/jquery-1.11.1.min.js',
         'js/move-top.js',
         'js/easing.js',
         'js/minicart.js',
