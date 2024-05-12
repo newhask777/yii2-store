@@ -15,6 +15,13 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => 'admin',
+            'defaultRoute' => 'main/index',
+        ],
+    ],
     'components' => [
         'assetManager' => [
             'bundles' => [
@@ -28,8 +35,8 @@ $config = [
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'batBqUwAqrf-NDvHgyVLftxwYip8fcYp',
-            'baseUrl' => ''
+            'cookieValidationKey' => 'ALgag-v1841oUVVB-0g1vMxfSdQuLKFs',
+            'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -37,6 +44,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => '/admin/auth/login',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -44,17 +52,17 @@ $config = [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure transport
+            // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
-//            'transport' => [
-//                'class' => 'Swift_SmtpTransport',
-//                'host' => 'localhost',
-//                'username' => 'username',
-//                'password' => 'password',
-//                'port' => '587',
-//                'encryption' => 'tls',
-//            ],
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.ukr.net',
+                'username' => 'yii2_loc@ukr.net',
+                'password' => 'password',
+                'port' => '2525', // 465
+                'encryption' => 'ssl', // tls
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -66,7 +74,6 @@ $config = [
             ],
         ],
         'db' => $db,
-
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -78,7 +85,6 @@ $config = [
                 'search' => 'category/search',
             ],
         ],
-
     ],
     'params' => $params,
 ];
