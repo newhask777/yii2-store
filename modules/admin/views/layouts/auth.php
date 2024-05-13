@@ -26,6 +26,8 @@ AuthAsset::register($this);
     <body class="hold-transition login-page">
     <?php $this->beginBody() ?>
 
+
+
     <?= $content ?>
 
     <?php $this->endBody() ?>

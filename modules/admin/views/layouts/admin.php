@@ -192,7 +192,7 @@ desired effect
                             <!-- The user image in the navbar-->
                             <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs"><?= Yii::$app->user->identity->username; ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
@@ -200,32 +200,19 @@ desired effect
                                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
+                                    <?= Yii::$app->user->identity->username; ?>
                                     <small>Member since Nov. 2012</small>
                                 </p>
                             </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </li>
+
+
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<?= \yii\helpers\Url::to(['auth/logout']); ?>" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -250,7 +237,7 @@ desired effect
                     <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p><?= Yii::$app->user->identity->username; ?></p>
                     <!-- Status -->
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
@@ -311,7 +298,7 @@ desired effect
             <!--------------------------
               | Your Page Content Here |
               -------------------------->
-
+            <?php debug(Yii::$app->user->identity); ?>
             <?= $content; ?>
 
         </section>
@@ -407,15 +394,6 @@ desired effect
     <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
-<!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
