@@ -64,6 +64,7 @@ class OrderController extends AppAdminController
      */
     public function actionView($id)
     {
+//        dd($this->findModel($id));
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
