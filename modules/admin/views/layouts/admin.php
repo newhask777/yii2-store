@@ -6,7 +6,6 @@ use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 
 AdminAsset::register($this);
-
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -18,34 +17,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <base href="/adminlte/">
     <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?php $this->head() ?>
-
-
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect. -->
-    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -75,7 +55,7 @@ desired effect
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="<?= Yii::$app->homeUrl; ?>" class="logo" target="_blank">
+        <a href="<?= Yii::$app->homeUrl ?>" class="logo" target="_blank">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
@@ -194,7 +174,7 @@ desired effect
                             <!-- The user image in the navbar-->
                             <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs"><?= Yii::$app->user->identity->username; ?></span>
+                            <span class="hidden-xs"><?= Yii::$app->user->identity->username ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
@@ -202,19 +182,16 @@ desired effect
                                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    <?= Yii::$app->user->identity->username; ?>
-                                    <small>Member since Nov. 2012</small>
+                                    <?= Yii::$app->user->identity->username ?>
                                 </p>
                             </li>
-
-
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="<?= \yii\helpers\Url::to(['auth/logout']); ?>" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<?= \yii\helpers\Url::to(['auth/logout']) ?>" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -228,15 +205,14 @@ desired effect
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <?= $this->render('/layouts/inc/sidebar'); ?>
+    <?= $this->render('/layouts/inc/sidebar') ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <?= $this->title; ?>
-
+                <?= $this->title ?>
             </h1>
             <?= Breadcrumbs::widget([
                 'homeLink' => ['label' => 'Главная', 'url' => '/admin/'],
@@ -252,7 +228,7 @@ desired effect
               | Your Page Content Here |
               -------------------------->
 
-            <?= $content; ?>
+            <?= $content ?>
 
         </section>
         <!-- /.content -->
@@ -348,9 +324,6 @@ desired effect
 </div>
 <!-- ./wrapper -->
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
 <?php $this->endBody() ?>
 </body>
 </html>
