@@ -3,7 +3,7 @@
     <div class="container">
         <ul>
             <li><i class="fa fa-home" aria-hidden="true"></i><a href="<?= \yii\helpers\Url::home() ?>">Home</a><span>|</span></li>
-            <li>Search: <?= $q ?></li>
+            <li>Поиск</li>
         </ul>
     </div>
 </div>
@@ -13,9 +13,59 @@
 <div class="banner">
     <?= $this->render('//layouts/inc/sidebar') ?>
     <div class="w3l_banner_nav_right">
-
+        <div class="w3l_banner_nav_right_banner3">
+            <h3>Best Deals For New Products<span class="blink_me"></span></h3>
+        </div>
+        <div class="w3l_banner_nav_right_banner3_btm">
+            <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
+                <div class="view view-tenth">
+                    <img src="images/13.jpg" alt=" " class="img-responsive" />
+                    <div class="mask">
+                        <h4>Grocery Store</h4>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                    </div>
+                </div>
+                <h4>Utensils</h4>
+                <ol>
+                    <li>sunt in culpa qui officia</li>
+                    <li>commodo consequat</li>
+                    <li>sed do eiusmod tempor incididunt</li>
+                </ol>
+            </div>
+            <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
+                <div class="view view-tenth">
+                    <img src="images/14.jpg" alt=" " class="img-responsive" />
+                    <div class="mask">
+                        <h4>Grocery Store</h4>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                    </div>
+                </div>
+                <h4>Hair Care</h4>
+                <ol>
+                    <li>enim ipsam voluptatem officia</li>
+                    <li>tempora incidunt ut labore et</li>
+                    <li>vel eum iure reprehenderit</li>
+                </ol>
+            </div>
+            <div class="col-md-4 w3l_banner_nav_right_banner3_btml">
+                <div class="view view-tenth">
+                    <img src="images/15.jpg" alt=" " class="img-responsive" />
+                    <div class="mask">
+                        <h4>Grocery Store</h4>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                    </div>
+                </div>
+                <h4>Cookies</h4>
+                <ol>
+                    <li>dolorem eum fugiat voluptas</li>
+                    <li>ut aliquid ex ea commodi</li>
+                    <li>magnam aliquam quaerat</li>
+                </ol>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
         <div class="w3ls_w3l_banner_nav_right_grid">
-            <h3 style="margin-top: 20px"><?= $q ?></h3>
+            <h3>Поиск: "<?= \yii\helpers\Html::encode($q) ?>"</h3>
             <?php if(!empty($products)): ?>
                 <div class="w3ls_w3l_banner_nav_right_grid1">
                     <?php foreach($products as $product): ?>
@@ -32,7 +82,7 @@
                                             <div class="snipcart-item block">
                                                 <div class="snipcart-thumb">
                                                     <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>">
-                                                        <?= \yii\helpers\Html::img("@web/products/{$product->img}", ['alt' => $product->title]) ?>
+                                                        <?= \yii\helpers\Html::img("@web/{$product->img}", ['alt' => $product->title]) ?>
                                                     </a>
                                                     <p><?= $product->title ?></p>
                                                     <h4>
@@ -43,11 +93,7 @@
                                                     </h4>
                                                 </div>
                                                 <div class="snipcart-details">
-                                                    <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id]) ?>"
-                                                       data-id="<?= $product->id ?>"
-                                                       class="button add-to-cart">
-                                                        add to cart
-                                                    </a>
+                                                    <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id]) ?>" data-id="<?= $product->id ?>" class="button add-to-cart">Add to cart</a>
                                                 </div>
                                             </div>
                                         </figure>
@@ -69,7 +115,7 @@
                 </div>
             <?php else: ?>
                 <div class="w3ls_w3l_banner_nav_right_grid1">
-                    <h6>Здесь пока нет товаров...</h6>
+                    <h6>По запросу ничего не найдено...</h6>
                 </div>
             <?php endif; ?>
         </div>

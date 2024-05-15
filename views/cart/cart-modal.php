@@ -1,36 +1,59 @@
-<?php if(!empty($session['cart'])): ?>
-    <div class="table-responsive">
-        <table class="table table-hover table-striped">
-            <thead>
-            <tr>
-                <th>Фото</th>
-                <th>Наименование</th>
-                <th>Кол-во</th>
-                <th>Цена</th>
-                <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach($session['cart'] as $id => $item):?>
-                <tr>
-                    <td><?= \yii\helpers\Html::img("@web/products/{$item['img']}", ['alt' => $item['title'], 'height' => 50]) ?></td>
-                    <td><?= $item['title']?></td>
-                    <td><?= $item['qty']?></td>
-                    <td><?= $item['price']?></td>
-                    <td><span data-id="<?= $id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
-                </tr>
-            <?php endforeach?>
-            <tr>
-                <td colspan="4">Итого: </td>
-                <td id="cart-qty"><?= $session['cart.qty']?></td>
-            </tr>
-            <tr>
-                <td colspan="4">На сумму: </td>
-                <td id="cart-sum">$<?= $session['cart.sum']?></td>
-            </tr>
-            </tbody>
-        </table>
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model app\modules\admin\models\Product */
+
+$this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Товары', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
+?>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                    'class' => 'btn btn-danger',
+                    'data' => [
+                        'confirm' => 'Are you sure you want to delete this item?',
+                        'method' => 'post',
+                    ],
+                ]) ?>
+            </div>
+            <div class="box-body">
+                <div class="product-view">
+
+
+                    <?= DetailView::widget([
+                        'model' => $model,
+                        'attributes' => [
+                            'id',
+                            'category_id',
+                            'title',
+                            'content:raw',
+                            'price',
+                            'old_price',
+                            'description',
+                            'keywords',
+                            //'img',
+                            [
+                                'attribute' => 'img',
+                                'value' => "/{$model->img}",
+                                'format' => ['image', ['width' => '100']],
+                            ],
+                            'is_offer',
+                        ],
+                    ]) ?>
+
+                </div>
+            </div>
+        </div>
     </div>
-<?php else: ?>
-    <h3>Корзина пуста</h3>
-<?php endif;?>
+</div>
+
+

@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             //'img',
                             [
                                 'attribute' => 'img',
-                                'value' => $model->img ? "/products/{$model->img}" : "/products/no-image.png",
+                                'value' => "/{$model->img}",
                                 'format' => ['image', ['width' => '100']],
                             ],
                             'is_offer',
