@@ -82,7 +82,11 @@
                                             <div class="snipcart-item block">
                                                 <div class="snipcart-thumb">
                                                     <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>">
-                                                        <?= \yii\helpers\Html::img("@web/products/{$product->img}", ['alt' => $product->title]) ?>
+                                                        <?php if($product->img): ?>
+                                                            <?= \yii\helpers\Html::img("@web/products/{$product->img}", ['alt' => $product->title]) ?>
+                                                        <?php else: ?>
+                                                            <?= \yii\helpers\Html::img("@web/products/no-image.png", ['alt' => $product->title]) ?>
+                                                        <?php endif; ?>
                                                     </a>
                                                     <p><?= $product->title ?></p>
                                                     <h4>
@@ -93,11 +97,7 @@
                                                     </h4>
                                                 </div>
                                                 <div class="snipcart-details">
-                                                    <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id]) ?>"
-                                                       data-id="<?= $product->id ?>"
-                                                       class="button add-to-cart">
-                                                        add to cart
-                                                    </a>
+                                                    <a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id]) ?>" data-id="<?= $product->id ?>" class="button add-to-cart">Add to cart</a>
                                                 </div>
                                             </div>
                                         </figure>

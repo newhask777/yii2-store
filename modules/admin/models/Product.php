@@ -11,10 +11,10 @@ use Yii;
  * @property int $category_id
  * @property string $title
  * @property string $content
- * @property float $price
- * @property float $old_price
- * @property string|null $description
- * @property string|null $keywords
+ * @property string $price
+ * @property string $old_price
+ * @property string $description
+ * @property string $keywords
  * @property string $img
  * @property int $is_offer
  */
@@ -26,6 +26,11 @@ class Product extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'product';
+    }
+
+    public function getCategory()
+    {
+        return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 
     /**
